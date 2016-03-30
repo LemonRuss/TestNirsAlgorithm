@@ -47,12 +47,6 @@ vector<double> MatchParam::getParams(vector<cplx> signal, int numP,
   
   double threshold = 2000;
   
-  std::ofstream outputFile;
-  outputFile.open("/Users/Leman/GoogleDisk/University/TestAlgorithmNirs/TestAlgorithmNirs/errors.txt");
-  outputFile << "signal = {";
-  copy(signal.begin(), signal.end(), ostream_iterator<cplx>(outputFile , ", "));
-  outputFile << "}" << endl;
-  
   std::size_t freqTarget = target.min;
   
   #pragma omp parallel for
@@ -85,22 +79,8 @@ vector<double> MatchParam::getParams(vector<cplx> signal, int numP,
             for (auto const& value: diff) {
               error += value;
             }
-//            outputFile << "difference = {";
-//            copy(diff.begin(), diff.end(), ostream_iterator<double>(outputFile , ", "));
-//            outputFile << "}";
-//            outputFile << freqTarget << " ";
-//            outputFile << freqClutter << " ";
-//            outputFile << widClutter << " ";
-//            outputFile << aTarget << " ";
-//            outputFile << aClutter << " ";
-//            
-//            outputFile << "bearingModule = {";
-//            copy(bearingSignal.begin(), bearingSignal.end(), ostream_iterator<cplx>(outputFile , ", "));
-//            outputFile << "}";
-//            outputFile << "error: " << error << endl;
             
             if (abs(error) < threshold) {
-//              std::cout << error << endl;
               threshold = abs(error);
               result[0] = freqTarget;
               result[1] = freqClutter;
@@ -108,17 +88,11 @@ vector<double> MatchParam::getParams(vector<cplx> signal, int numP,
               result[3] = aTarget;
               result[4] = aClutter;
             }
-            //            fMMMP[freqTarget][freqClutter][widClutter][aTarget][aClutter] = error;
           }
         }
       }
     }
   }
-  outputFile.close();
-//    std::ofstream outputFile("./errors.txt");
-//    outputFile << "GLfloat vector[]={";
-//    copy(fMMMP.begin(), fMMMP.end(), ostream_iterator<cplx>(outputFile , ", "));
-//    outputFile << "}" << endl;
   return result;
 }
 

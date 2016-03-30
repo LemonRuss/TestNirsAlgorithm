@@ -13,7 +13,6 @@
 #include <chrono>
 #include <random>
 
-#include "GenerateSIgnal.hpp"
 #include "MatchParam.hpp"
 
 using namespace std;
@@ -48,15 +47,7 @@ int main(int argc, const char * argv[]) {
   //Амплитуда
   params.ampl.push_back(1);
   params.ampl.push_back(1);
-  
-  
-  SignalGenerator* signalGenerator = new SignalGenerator(params);
-  
-  signalGenerator->generateSignal();
-  
-  // Why i need it?
-  vector< vector<double> > signalAbs = signalGenerator->signalAbs();
-  
+    
   for (int l = 300; l < 1000; l += 30) {
     //Params for Lmax
     RangeOfValues target = RangeOfValues();
@@ -79,17 +70,7 @@ int main(int argc, const char * argv[]) {
     
     MatchParam* matchParam = new MatchParam(target, clutter, ampl, widthClutter, params.periodRecordImp);
     
-    
-    vector<cplx> firstImpulse = signalGenerator->getSignal()[0];
-    
     double fd = 1200000/params.periodRecordImp[0];
-    
-    
-    //  for (std::vector<int>::size_type z = 0; z != firstImpulse.size(); ++z) {
-    //    double value = (1/fd) * z;
-    //    firstImpulse[z] = cplx(5, 0) * std::exp(cplx(0, 1) * cplx(300, 0) * cplx(value, 0)) + 0 * params.noisePower * signalGenerator->sampleNormal();
-    //  }
-    
     
     params.noisePower = 0.001;
     double freqTarget = 300;
@@ -132,26 +113,6 @@ int main(int argc, const char * argv[]) {
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::seconds>( t2 - t1 ).count();
     cout << duration;
-    
-
-    
-    
-    //  std::ofstream timeFile("/Users/Leman/GoogleDisk/University/TestAlgorithmNirs/TestAlgorithmNirs/time.txt", std::ofstream::app);
-    //  timeFile << endl;
-    //  timeFile << "                         Time spent :" << duration <<  "s" << endl;
-    //  timeFile << "Target freq. Max: " << target.max  << ", points: " << target.numbPoints << endl;
-    //  timeFile << "Clutter freq. Max: " << clutter.max  << ", points: " << clutter.numbPoints << endl;
-    //  timeFile << "Width clutter. Max: " << widthClutter.max  << ", points: " << widthClutter.numbPoints << endl;
-    //  timeFile << "Ampl clutter. Max: " << ampl.max  << ", points: " << ampl.numbPoints << endl;
-    //  timeFile.close();
-    
-    
-    //  std::ofstream outputFile;
-    //  outputFile.open("/Users/Leman/GoogleDisk/University/TestAlgorithmNirs/TestAlgorithmNirs/result.txt");
-    //  outputFile << "result = {";
-    //  copy(result.begin(), result.end(), ostream_iterator<double>(outputFile , ", "));
-    //  outputFile << "}" << endl;
-    //  outputFile.close();
     
     std::ofstream outputFile("3_params.txt", std::ofstream::app);
     
