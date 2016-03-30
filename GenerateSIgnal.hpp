@@ -20,14 +20,14 @@ class SignalGenerator {
 public:
   SignalGenerator(ModelParams params);
   void generateSignal();
-  vector<vector<double>> signalAbs();
-  vector<vector<cplx>> getSignal();
+  vector< vector<double> > signalAbs();
+  vector< vector<cplx> > getSignal();
   
   double sampleNormal();
 private:
   ModelParams params;
   
-  vector<vector<cplx>> signal;
+  vector< vector<cplx> > signal;
 };
 
 #endif /* GenerateSIgnal_hpp */

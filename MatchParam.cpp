@@ -11,7 +11,7 @@
 #include <iterator>
 #include <string>
 #include <iostream>
-#include <libiomp/omp.h>
+#include <omp.h>
 
 
 MatchParam::MatchParam(RangeOfValues target, RangeOfValues clutter,
@@ -32,7 +32,7 @@ vector<double> MatchParam::getParams(vector<cplx> signal, int numP,
   vector<double> result(5);
   int nUmp = periodRecordImp[numP];
   
-  vector<vector<vector<vector<vector<double>>>>> fMMMP;
+//  vector<vector<vector<vector<vector<double>>>>> fMMMP;
   
   std::size_t signalLenght = signal.size();
   

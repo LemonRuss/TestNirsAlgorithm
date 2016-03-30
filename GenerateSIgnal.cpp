@@ -13,7 +13,7 @@
 
 SignalGenerator::SignalGenerator(ModelParams params) {
   this->params = params;
-  vector<vector<cplx>> vec(params.numbParam, vector<cplx>(params.numbImp));
+  vector< vector<cplx> > vec(params.numbParam, vector<cplx>(params.numbImp));
   this->signal = vec;
 }
 
@@ -71,11 +71,11 @@ void SignalGenerator::generateSignal() {
 }
 
 // Signal module
-vector<vector<double>> SignalGenerator::signalAbs() {
+vector< vector<double> > SignalGenerator::signalAbs() {
   return ::signalAbs(this->signal);
 }
 
-vector<vector<cplx>> SignalGenerator::getSignal() {
+vector<vector<cplx> > SignalGenerator::getSignal() {
   return this->signal;
 }
 

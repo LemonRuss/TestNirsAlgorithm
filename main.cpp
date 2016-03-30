@@ -55,7 +55,7 @@ int main(int argc, const char * argv[]) {
   signalGenerator->generateSignal();
   
   // Why i need it?
-  vector<vector<double>> signalAbs = signalGenerator->signalAbs();
+  vector< vector<double> > signalAbs = signalGenerator->signalAbs();
   
   for (int l = 300; l < 1000; l += 30) {
     //Params for Lmax
