@@ -116,7 +116,7 @@ int main(int argc, const char * argv[]) {
   auto duration = std::chrono::duration_cast<std::chrono::seconds>( t2 - t1 ).count();
   cout << duration << endl;
   
-  cout << result[0] << " " << result[1] << " " << result[2] << " " << result[3] << " " << result[4] << endl
+  cout << result[0] << " " << result[1] << " " << result[2] << " " << result[3] << " " << result[4] << endl;
   return 0;
 }
 
