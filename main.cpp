@@ -57,7 +57,7 @@ int main(int argc, const char * argv[]) {
   
   RangeOfValues clutter = RangeOfValues();
   clutter.numbPoints = 1000;
-  clutter.max = 400;
+  clutter.max = 1000;
   clutter.min = 0;
   
   RangeOfValues widthClutter = RangeOfValues();
