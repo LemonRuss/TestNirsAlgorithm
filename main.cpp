@@ -153,7 +153,7 @@ int main(int argc, const char * argv[]) {
     //  outputFile << "}" << endl;
     //  outputFile.close();
     
-    std::ofstream outputFile("/Users/Leman/GoogleDisk/University/TestAlgorithmNirs/TestAlgorithmNirs/3_params_2.txt", std::ofstream::app);
+    std::ofstream outputFile("3_params.txt", std::ofstream::app);
     
     outputFile << 0.01 - avrNoise <<  " " << target.numbPoints << " " << freqTarget -  result[0] << " " << endl;
     outputFile.close();
