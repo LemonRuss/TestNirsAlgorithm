@@ -51,12 +51,12 @@ int main(int argc, const char * argv[]) {
   //  for (int l = 300; l < 1000; l += 30) {
   //Params for Lmax
   RangeOfValues target = RangeOfValues();
-  target.numbPoints = 1000;
+  target.numbPoints = 100;
   target.max = 1340;
   target.min = 0;
   
   RangeOfValues clutter = RangeOfValues();
-  clutter.numbPoints = 1000;
+  clutter.numbPoints = 100;
   clutter.max = 1000;
   clutter.min = 0;
   

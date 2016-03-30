@@ -51,6 +51,7 @@ vector<double> MatchParam::getParams(vector<cplx> signal, int numP,
   
   #pragma omp parallel for
   for (freqTarget = target.min; freqTarget < target.max; freqTarget += targetStep) {
+    std::cout << freqTarget << std::endl;
     for (std::size_t freqClutter = clutter.min; freqClutter < clutter.max; freqClutter += clutterStep) {
       for (std::size_t widClutter = widthClutter.min; widClutter < widthClutter.max;
            widClutter += widthClutterStep) {
