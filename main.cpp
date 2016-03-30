@@ -48,10 +48,10 @@ int main(int argc, const char * argv[]) {
   params.ampl.push_back(1);
   params.ampl.push_back(1);
     
-  for (int l = 300; l < 1000; l += 30) {
+//  for (int l = 300; l < 1000; l += 30) {
     //Params for Lmax
     RangeOfValues target = RangeOfValues();
-    target.numbPoints = l;
+    target.numbPoints = 300;
     target.max = 1340;
     target.min = 0;
     
@@ -86,6 +86,8 @@ int main(int argc, const char * argv[]) {
     std::mt19937 gen(rd());
     std::normal_distribution<> d(0.01, 0.03);
     
+    vector<cplx> firstImpulse(params.numbImp);
+    
     for (std::vector<int>::size_type z = 0; z != firstImpulse.size(); ++z) {
       cplx clutt = cplx(0, 0);
       
@@ -118,7 +120,7 @@ int main(int argc, const char * argv[]) {
     
     outputFile << 0.01 - avrNoise <<  " " << target.numbPoints << " " << freqTarget -  result[0] << " " << endl;
     outputFile.close();
-  }
+//  }
   return 0;
 }
 
