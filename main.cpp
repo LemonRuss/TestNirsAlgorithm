@@ -116,10 +116,10 @@ int main(int argc, const char * argv[]) {
     auto duration = std::chrono::duration_cast<std::chrono::seconds>( t2 - t1 ).count();
     cout << duration;
     
-    std::ofstream outputFile("3_params.txt", std::ofstream::app);
-    
-    outputFile << 0.01 - avrNoise <<  " " << target.numbPoints << " " << freqTarget -  result[0] << " " << endl;
-    outputFile.close();
+//    std::ofstream outputFile("3_params.txt", std::ofstream::app);
+//    
+//    outputFile << 0.01 - avrNoise <<  " " << target.numbPoints << " " << freqTarget -  result[0] << " " << endl;
+//    outputFile.close();
 //  }
   return 0;
 }
